@@ -1,0 +1,15 @@
+{
+  "version": "deepseek-official-2026-11-07",
+  "verified_at": "2026-11-07",
+  "source_url": "https://api-docs.deepseek.com/zh-cn/quick_start/pricing/",
+  "currency": "CNY",
+  "models": [
+    {"name": "deepseek-flash", "aliases": ["deepseek-flash", "deepseek-v4-flash", "deepseek-v4-flash-vision-exp"], "off_peak": {"cache_hit": "0.02", "cache_miss": "1", "output": "4"}, "peak": {"cache_hit": "0.04", "cache_miss": "2", "output": "8"}},
+    {"name": "deepseek-v4-pro", "aliases": ["deepseek-v4-pro"], "off_peak": {"cache_hit": "0.15", "cache_miss": "4.5", "output": "13.5"}, "peak": {"cache_hit": "0.30", "cache_miss": "9", "output": "27"}}
+  ],
+  "holidays": {
+    "2026": [["2026-01-01", "2026-01-03"], ["2026-02-15", "2026-02-23"], ["2026-04-04", "2026-04-06"], ["2026-05-01", "2026-05-05"], ["2026-06-19", "2026-06-21"], ["2026-09-25", "2026-09-27"], ["2026-10-01", "2026-10-07"]],
+    "2027": [["2027-01-01", "2027-01-03"], ["2027-02-05", "2027-02-13"], ["2027-04-03", "2027-04-05"], ["2027-05-01", "2027-05-05"], ["2027-06-09", "2027-06-09"], ["2027-09-15", "2027-09-15"], ["2027-10-01", "2027-10-07"]]
+  },
+  "calendar_sources": ["https://www.beijing.gov.cn/cs/gncs/zcwj/202603/t20260327_4568275.html", "https://www3.xinhuanet.com/politics/20261105/f90cd6ad4df94ab4833b141e52ccfc13/c.html"]
+}

@@ -1,0 +1,11 @@
+{
+  "timezone": "Asia/Shanghai",
+  "initial_selection_version": "v008",
+  "daily_trigger": "10:00",
+  "channel_poll_minutes": 30,
+  "candidate_window_hours": 72,
+  "candidate_limit": 30,
+  "max_approved": 30,
+  "publish_slots": ["13:00", "16:00", "19:00"],
+  "max_new_publications_per_day": 3
+}

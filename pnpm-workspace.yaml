@@ -1,0 +1,8 @@
+packages:
+  - frontend
+  - services/youtube
+  - packages/api-types
+  - packages/browser-bridge
+  - extensions/youtube-login
+onlyBuiltDependencies:
+  - esbuild

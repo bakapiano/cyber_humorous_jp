@@ -1,0 +1,6 @@
+{
+  "name":"@youmo/youtube", "private":true, "version":"0.1.0", "type":"module",
+  "scripts":{"dev":"tsx src/server.ts", "typecheck":"tsc --noEmit", "build":"tsc --project tsconfig.build.json", "test":"vitest run"},
+  "dependencies":{"@youmo/api-types":"workspace:*", "@youmo/browser-bridge":"workspace:*", "fastify":"^5.12.8", "youtubei.js":"^18.3.0", "undici":"^7.0.0"},
+  "devDependencies":{"tsx":"^4.20.0", "vitest":"^4.0.0"}
+}

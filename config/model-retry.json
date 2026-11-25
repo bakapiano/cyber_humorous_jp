@@ -1,0 +1,6 @@
+{
+  "enabled": true,
+  "max_retries": 2,
+  "delay_seconds": 5,
+  "authorization": "2026-11-07 user explicitly authorized autonomous DeepSeek API calls and retries; provider-side quota controls spending."
+}

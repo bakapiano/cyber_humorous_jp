@@ -1,0 +1,23 @@
+.selection-ranking {
+  list-style: decimal !important;
+  padding-left: 26px !important;
+}
+.selection-ranking li {
+  overflow-wrap: anywhere;
+}
+.selection-ranking strong {
+  font-weight: 500;
+}
+.selection-ranking p {
+  font-size: 11px;
+  color: var(--muted);
+  margin: 6px 0;
+}
+.selection-results details {
+  font-size: 12px;
+  color: var(--accent);
+  margin: 20px 0;
+}
+.selection-results summary {
+  cursor: pointer;
+}

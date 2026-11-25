@@ -1,0 +1,9 @@
+title = "Workflow source secret scanning"
+
+[extend]
+useDefault = true
+
+[[allowlists]]
+description = "Exact public SPKI key embedded in the Chromium extension manifest; not a private key"
+regexTarget = "secret"
+regexes = ['^MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAtwlPIEAQ8NIs6Kf1YomMJpA1GKeGggYOznFCmlKcXBo8IlVrdkT\+R\+jMo675zfoFa18drrn2sMsm17hzTZpN5SKf9DfJDngzu9WQYFArHscQkxWTOeHX26PleKvi\+Ec1pqv8UqXE2F5/aBDWL8p6ErF8os7D1l1/IxBDttH5WmB4sdMzOQnVCKpmkDLUI5AvIhd8rzo9p2yYX7qyW7UC2LcQ/6mVclMvajh1Gaiyv3wjkp5We46dQ/s1P//johZ1MXqdqkQNfZxfUWn0IYnnh9eHyCXpbRC\+nE8xJ35szVq\+dyJroSjnZjrjDQMZrnGwnAf7OrCXl9Mhz7YHBfH/OQIDAQAB$']

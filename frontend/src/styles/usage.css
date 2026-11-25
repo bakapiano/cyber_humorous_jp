@@ -1,0 +1,117 @@
+.usage-metrics {
+  margin-bottom: 16px;
+}
+.usage-metrics .metric > div {
+  font-size: 23px;
+  overflow-wrap: anywhere;
+}
+.usage-tabs {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin: 22px 0;
+}
+.usage-tabs button {
+  padding: 9px 16px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: var(--panel);
+  color: var(--muted);
+}
+.usage-tabs button[aria-pressed='true'] {
+  background: var(--accent-soft);
+  color: var(--accent);
+  border-color: var(--accent-line);
+}
+.usage-list-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin: 16px 0;
+}
+.usage-list-heading input {
+  max-width: 260px;
+  width: 100%;
+  padding: 9px 12px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: var(--panel);
+  color: var(--text);
+}
+.usage-title {
+  min-width: 230px;
+  max-width: 370px;
+  overflow-wrap: anywhere;
+}
+.usage-title strong {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.usage-token-details {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+  padding: 16px 0;
+  font-size: 12px;
+}
+.usage-token-details dt {
+  color: var(--muted);
+  font-size: 11px;
+}
+.usage-token-details dd {
+  margin: 5px 0 0;
+  font-variant-numeric: tabular-nums;
+}
+.usage-pricing {
+  margin-top: 24px;
+  padding: 18px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--panel);
+  font-size: 12px;
+}
+.usage-pricing summary {
+  cursor: pointer;
+  font-weight: 500;
+}
+.usage-pricing p {
+  color: var(--muted);
+  line-height: 1.8;
+  margin: 14px 0;
+}
+.usage-pricing a {
+  color: var(--accent);
+}
+.usage-detail > .section-heading h3 {
+  overflow-wrap: anywhere;
+}
+.usage-scroll-hint,
+td small.usage-mobile-cost {
+  display: none;
+}
+@media (max-width: 650px) {
+  .usage-scroll-hint {
+    display: block;
+    color: var(--muted);
+    font-size: 11px;
+  }
+  td small.usage-mobile-cost {
+    display: block;
+    color: var(--text);
+  }
+  .usage-list-heading {
+    flex-wrap: wrap;
+  }
+  .usage-list-heading input {
+    max-width: none;
+  }
+  .usage-token-details {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .usage-metrics .metric > div {
+    font-size: 19px;
+  }
+}

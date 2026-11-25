@@ -1,0 +1,29 @@
+{
+  "name": "youmo-workflow",
+  "private": true,
+  "packageManager": "pnpm@10.11.0",
+  "scripts": {
+    "lint": "eslint frontend/src services/youtube/src packages/browser-bridge/src extensions/youtube-login/src extensions/youtube-login/vite.config.ts e2e --max-warnings 0",
+    "format:check": "prettier --check frontend/src services/youtube/src packages/browser-bridge/src extensions/youtube-login/src extensions/youtube-login/vite.config.ts e2e playwright.config.ts",
+    "format": "prettier --write frontend/src services/youtube/src packages/browser-bridge/src extensions/youtube-login/src extensions/youtube-login/vite.config.ts e2e playwright.config.ts",
+    "typecheck": "pnpm -r typecheck",
+    "typecheck:e2e": "tsc --project e2e --noEmit",
+    "test": "pnpm -r test",
+    "build": "pnpm -r build",
+    "contracts": "openapi-typescript contracts/openapi.json -o packages/api-types/src/generated/api.ts",
+    "test:e2e": "playwright test"
+  },
+  "devDependencies": {
+    "@types/chrome": "^0.1.32",
+    "@eslint/js": "^10.0.1",
+    "@playwright/test": "^1.56.0",
+    "@types/node": "^22.0.0",
+    "eslint": "^10.14.0",
+    "eslint-plugin-react-hooks": "^7.0.0",
+    "globals": "^16.0.0",
+    "openapi-typescript": "^7.10.0",
+    "prettier": "^3.6.0",
+    "typescript": "^5.9.0",
+    "typescript-eslint": "^8.72.1"
+  }
+}

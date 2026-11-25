@@ -1,0 +1,4272 @@
+{
+  "components": {
+    "schemas": {
+      "ActivityBucket": {
+        "additionalProperties": false,
+        "properties": {
+          "count": {
+            "default": 0,
+            "title": "Count",
+            "type": "integer"
+          },
+          "label": {
+            "title": "Label",
+            "type": "string"
+          },
+          "start": {
+            "title": "Start",
+            "type": "string"
+          }
+        },
+        "required": [
+          "start",
+          "label"
+        ],
+        "title": "ActivityBucket",
+        "type": "object"
+      },
+      "ArtifactDTO": {
+        "additionalProperties": false,
+        "properties": {
+          "artifact_id": {
+            "title": "Artifact Id",
+            "type": "string"
+          },
+          "available": {
+            "default": true,
+            "title": "Available",
+            "type": "boolean"
+          },
+          "kind": {
+            "title": "Kind",
+            "type": "string"
+          },
+          "sha256": {
+            "title": "Sha256",
+            "type": "string"
+          },
+          "size_bytes": {
+            "title": "Size Bytes",
+            "type": "integer"
+          },
+          "test_only": {
+            "title": "Test Only",
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "artifact_id",
+          "kind",
+          "sha256",
+          "size_bytes",
+          "test_only"
+        ],
+        "title": "ArtifactDTO",
+        "type": "object"
+      },
+      "ArtifactRef": {
+        "additionalProperties": false,
+        "properties": {
+          "artifact_id": {
+            "title": "Artifact Id",
+            "type": "string"
+          },
+          "sha256": {
+            "pattern": "^[0-9a-f]{64}$",
+            "title": "Sha256",
+            "type": "string"
+          }
+        },
+        "required": [
+          "artifact_id",
+          "sha256"
+        ],
+        "title": "ArtifactRef",
+        "type": "object"
+      },
+      "BatchDTO": {
+        "additionalProperties": false,
+        "properties": {
+          "candidate_count": {
+            "title": "Candidate Count",
+            "type": "integer"
+          },
+          "error_code": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Error Code"
+          },
+          "error_message": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Error Message"
+          },
+          "id": {
+            "title": "Id",
+            "type": "string"
+          },
+          "local_date": {
+            "title": "Local Date",
+            "type": "string"
+          },
+          "policy": {
+            "$ref": "#/components/schemas/Policy"
+          },
+          "publications_per_batch": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Publications Per Batch"
+          },
+          "snapshot_at": {
+            "title": "Snapshot At",
+            "type": "string"
+          },
+          "status": {
+            "title": "Status",
+            "type": "string"
+          },
+          "trigger_mode": {
+            "default": "legacy",
+            "enum": [
+              "legacy",
+              "manual",
+              "automatic"
+            ],
+            "title": "Trigger Mode",
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "local_date",
+          "status",
+          "snapshot_at",
+          "candidate_count",
+          "policy",
+          "error_code",
+          "error_message"
+        ],
+        "title": "BatchDTO",
+        "type": "object"
+      },
+      "BatchDetail": {
+        "additionalProperties": false,
+        "properties": {
+          "candidate_count": {
+            "title": "Candidate Count",
+            "type": "integer"
+          },
+          "error_code": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Error Code"
+          },
+          "error_message": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Error Message"
+          },
+          "id": {
+            "title": "Id",
+            "type": "string"
+          },
+          "items": {
+            "items": {
+              "$ref": "#/components/schemas/VideoDTO"
+            },
+            "title": "Items",
+            "type": "array"
+          },
+          "local_date": {
+            "title": "Local Date",
+            "type": "string"
+          },
+          "policy": {
+            "$ref": "#/components/schemas/Policy"
+          },
+          "publications_per_batch": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Publications Per Batch"
+          },
+          "snapshot_at": {
+            "title": "Snapshot At",
+            "type": "string"
+          },
+          "status": {
+            "title": "Status",
+            "type": "string"
+          },
+          "trigger_mode": {
+            "default": "legacy",
+            "enum": [
+              "legacy",
+              "manual",
+              "automatic"
+            ],
+            "title": "Trigger Mode",
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "local_date",
+          "status",
+          "snapshot_at",
+          "candidate_count",
+          "policy",
+          "error_code",
+          "error_message",
+          "items"
+        ],
+        "title": "BatchDetail",
+        "type": "object"
+      },
+      "BatchPage": {
+        "additionalProperties": false,
+        "properties": {
+          "items": {
+            "items": {
+              "$ref": "#/components/schemas/BatchDTO"
+            },
+            "title": "Items",
+            "type": "array"
+          },
+          "limit": {
+            "title": "Limit",
+            "type": "integer"
+          },
+          "offset": {
+            "title": "Offset",
+            "type": "integer"
+          },
+          "total": {
+            "title": "Total",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "total",
+          "offset",
+          "limit",
+          "items"
+        ],
+        "title": "BatchPage",
+        "type": "object"
+      },
+      "BatchPlanState": {
+        "additionalProperties": false,
+        "properties": {
+          "active_batch_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Active Batch Id"
+          },
+          "auto_enabled": {
+            "default": false,
+            "title": "Auto Enabled",
+            "type": "boolean"
+          },
+          "automatic_blocked": {
+            "default": false,
+            "title": "Automatic Blocked",
+            "type": "boolean"
+          },
+          "batch_size": {
+            "default": 100,
+            "maximum": 1000.0,
+            "minimum": 50.0,
+            "title": "Batch Size",
+            "type": "integer"
+          },
+          "buffer_limit": {
+            "default": 50,
+            "title": "Buffer Limit",
+            "type": "integer"
+          },
+          "buffer_used": {
+            "default": 0,
+            "title": "Buffer Used",
+            "type": "integer"
+          },
+          "eligible_count": {
+            "title": "Eligible Count",
+            "type": "integer"
+          },
+          "message": {
+            "title": "Message",
+            "type": "string"
+          },
+          "next_submit_at": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Next Submit At"
+          },
+          "publication_mode": {
+            "default": "private_reprint",
+            "enum": [
+              "private_reprint",
+              "public_reprint"
+            ],
+            "title": "Publication Mode",
+            "type": "string"
+          },
+          "publications_per_batch": {
+            "default": 10,
+            "maximum": 30.0,
+            "minimum": 1.0,
+            "title": "Publications Per Batch",
+            "type": "integer"
+          },
+          "publisher_ready": {
+            "default": true,
+            "title": "Publisher Ready",
+            "type": "boolean"
+          },
+          "revision": {
+            "title": "Revision",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "revision",
+          "eligible_count",
+          "message"
+        ],
+        "title": "BatchPlanState",
+        "type": "object"
+      },
+      "BatchPlanUpdate": {
+        "additionalProperties": false,
+        "properties": {
+          "auto_enabled": {
+            "default": false,
+            "title": "Auto Enabled",
+            "type": "boolean"
+          },
+          "batch_size": {
+            "default": 100,
+            "maximum": 1000.0,
+            "minimum": 50.0,
+            "title": "Batch Size",
+            "type": "integer"
+          },
+          "confirm_execution": {
+            "default": false,
+            "title": "Confirm Execution",
+            "type": "boolean"
+          },
+          "publication_mode": {
+            "default": "private_reprint",
+            "enum": [
+              "private_reprint",
+              "public_reprint"
+            ],
+            "title": "Publication Mode",
+            "type": "string"
+          },
+          "publications_per_batch": {
+            "default": 10,
+            "maximum": 30.0,
+            "minimum": 1.0,
+            "title": "Publications Per Batch",
+            "type": "integer"
+          },
+          "revision": {
+            "minimum": 0.0,
+            "title": "Revision",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "revision"
+        ],
+        "title": "BatchPlanUpdate",
+        "type": "object"
+      },
+      "BatchTrigger": {
+        "additionalProperties": false,
+        "properties": {
+          "confirm_execution": {
+            "const": true,
+            "title": "Confirm Execution",
+            "type": "boolean"
+          },
+          "request_id": {
+            "format": "uuid",
+            "title": "Request Id",
+            "type": "string"
+          },
+          "revision": {
+            "minimum": 0.0,
+            "title": "Revision",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "request_id",
+          "revision",
+          "confirm_execution"
+        ],
+        "title": "BatchTrigger",
+        "type": "object"
+      },
+      "Confirmation": {
+        "additionalProperties": false,
+        "properties": {
+          "manifest_hash": {
+            "title": "Manifest Hash",
+            "type": "string"
+          }
+        },
+        "required": [
+          "manifest_hash"
+        ],
+        "title": "Confirmation",
+        "type": "object"
+      },
+      "Dashboard": {
+        "additionalProperties": false,
+        "properties": {
+          "automation_enabled": {
+            "title": "Automation Enabled",
+            "type": "boolean"
+          },
+          "batches": {
+            "title": "Batches",
+            "type": "integer"
+          },
+          "content_preparation_provider": {
+            "default": "youtube_local_asr",
+            "enum": [
+              "not_implemented",
+              "youtube_local_asr"
+            ],
+            "title": "Content Preparation Provider",
+            "type": "string"
+          },
+          "editing_provider": {
+            "const": "v003_ranges",
+            "default": "v003_ranges",
+            "title": "Editing Provider",
+            "type": "string"
+          },
+          "eligible_videos": {
+            "title": "Eligible Videos",
+            "type": "integer"
+          },
+          "enabled_sources": {
+            "title": "Enabled Sources",
+            "type": "integer"
+          },
+          "failed_tasks": {
+            "title": "Failed Tasks",
+            "type": "integer"
+          },
+          "packaging_provider": {
+            "default": "raw_history_poster_v001",
+            "enum": [
+              "not_implemented",
+              "raw_history_poster_v001"
+            ],
+            "title": "Packaging Provider",
+            "type": "string"
+          },
+          "policy": {
+            "$ref": "#/components/schemas/Policy"
+          },
+          "publication_enabled": {
+            "title": "Publication Enabled",
+            "type": "boolean"
+          },
+          "rescreen_provider": {
+            "const": "passthrough",
+            "default": "passthrough",
+            "title": "Rescreen Provider",
+            "type": "string"
+          },
+          "selection_provider": {
+            "default": "v008_anchor_rescue",
+            "enum": [
+              "not_implemented",
+              "v004_title_recall",
+              "v008_anchor_rescue"
+            ],
+            "title": "Selection Provider",
+            "type": "string"
+          },
+          "sources": {
+            "title": "Sources",
+            "type": "integer"
+          },
+          "videos": {
+            "title": "Videos",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "sources",
+          "enabled_sources",
+          "videos",
+          "eligible_videos",
+          "batches",
+          "failed_tasks",
+          "policy",
+          "automation_enabled",
+          "publication_enabled"
+        ],
+        "title": "Dashboard",
+        "type": "object"
+      },
+      "DiscoveryPage": {
+        "additionalProperties": false,
+        "properties": {
+          "continuation": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Continuation"
+          },
+          "items": {
+            "items": {
+              "$ref": "#/components/schemas/DiscoveryVideo"
+            },
+            "title": "Items",
+            "type": "array"
+          },
+          "skipped_count": {
+            "default": 0,
+            "title": "Skipped Count",
+            "type": "integer"
+          },
+          "warnings": {
+            "items": {
+              "type": "string"
+            },
+            "title": "Warnings",
+            "type": "array"
+          }
+        },
+        "required": [
+          "items"
+        ],
+        "title": "DiscoveryPage",
+        "type": "object"
+      },
+      "DiscoveryVideo": {
+        "additionalProperties": false,
+        "properties": {
+          "channel_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Channel Id"
+          },
+          "channel_title": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Channel Title"
+          },
+          "duration_seconds": {
+            "anyOf": [
+              {
+                "minimum": 0.0,
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Duration Seconds"
+          },
+          "origin": {
+            "default": "channel",
+            "enum": [
+              "channel",
+              "home",
+              "manual"
+            ],
+            "title": "Origin",
+            "type": "string"
+          },
+          "published_at": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Published At"
+          },
+          "thumbnail_url": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Thumbnail Url"
+          },
+          "title": {
+            "minLength": 1,
+            "title": "Title",
+            "type": "string"
+          },
+          "video_id": {
+            "pattern": "^[A-Za-z0-9_-]{11}$",
+            "title": "Video Id",
+            "type": "string"
+          }
+        },
+        "required": [
+          "video_id",
+          "title"
+        ],
+        "title": "DiscoveryVideo",
+        "type": "object"
+      },
+      "ErrorResponse": {
+        "additionalProperties": false,
+        "properties": {
+          "code": {
+            "title": "Code",
+            "type": "string"
+          },
+          "message": {
+            "title": "Message",
+            "type": "string"
+          }
+        },
+        "required": [
+          "code",
+          "message"
+        ],
+        "title": "ErrorResponse",
+        "type": "object"
+      },
+      "HTTPValidationError": {
+        "properties": {
+          "detail": {
+            "items": {
+              "$ref": "#/components/schemas/ValidationError"
+            },
+            "title": "Detail",
+            "type": "array"
+          }
+        },
+        "title": "HTTPValidationError",
+        "type": "object"
+      },
+      "Health": {
+        "additionalProperties": false,
+        "properties": {
+          "service": {
+            "default": "youmo-workflow",
+            "title": "Service",
+            "type": "string"
+          },
+          "status": {
+            "const": "ok",
+            "default": "ok",
+            "title": "Status",
+            "type": "string"
+          }
+        },
+        "title": "Health",
+        "type": "object"
+      },
+      "InitialOutput": {
+        "additionalProperties": false,
+        "properties": {
+          "batch_id": {
+            "title": "Batch Id",
+            "type": "string"
+          },
+          "component_hashes": {
+            "additionalProperties": {
+              "type": "string"
+            },
+            "title": "Component Hashes",
+            "type": "object"
+          },
+          "composition": {
+            "default": "baseline",
+            "enum": [
+              "baseline",
+              "anchor_rescue",
+              "baseline_fallback"
+            ],
+            "title": "Composition",
+            "type": "string"
+          },
+          "content_verified": {
+            "const": false,
+            "default": false,
+            "title": "Content Verified",
+            "type": "boolean"
+          },
+          "fallback_reason": {
+            "anyOf": [
+              {
+                "const": "provider_content_filter",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Fallback Reason"
+          },
+          "input_sha256": {
+            "title": "Input Sha256",
+            "type": "string"
+          },
+          "not_shortlisted_ids": {
+            "items": {
+              "type": "string"
+            },
+            "title": "Not Shortlisted Ids",
+            "type": "array"
+          },
+          "prompt_sha256": {
+            "title": "Prompt Sha256",
+            "type": "string"
+          },
+          "rank_count": {
+            "title": "Rank Count",
+            "type": "integer"
+          },
+          "ranked": {
+            "items": {
+              "$ref": "#/components/schemas/RankedCandidate"
+            },
+            "title": "Ranked",
+            "type": "array"
+          },
+          "shortlist_limit": {
+            "title": "Shortlist Limit",
+            "type": "integer"
+          },
+          "shortlisted_ids": {
+            "items": {
+              "type": "string"
+            },
+            "title": "Shortlisted Ids",
+            "type": "array"
+          },
+          "version": {
+            "default": "v004",
+            "enum": [
+              "v004",
+              "v008"
+            ],
+            "title": "Version",
+            "type": "string"
+          }
+        },
+        "required": [
+          "batch_id",
+          "input_sha256",
+          "prompt_sha256",
+          "rank_count",
+          "shortlist_limit",
+          "ranked",
+          "shortlisted_ids",
+          "not_shortlisted_ids"
+        ],
+        "title": "InitialOutput",
+        "type": "object"
+      },
+      "Policy": {
+        "additionalProperties": false,
+        "properties": {
+          "candidate_limit": {
+            "default": 6,
+            "maximum": 50.0,
+            "minimum": 1.0,
+            "title": "Candidate Limit",
+            "type": "integer"
+          },
+          "candidate_window_hours": {
+            "default": 72,
+            "maximum": 720.0,
+            "minimum": 1.0,
+            "title": "Candidate Window Hours",
+            "type": "integer"
+          },
+          "channel_poll_minutes": {
+            "default": 30,
+            "minimum": 5.0,
+            "title": "Channel Poll Minutes",
+            "type": "integer"
+          },
+          "daily_trigger": {
+            "default": "10:00",
+            "pattern": "^(?:[01]\\d|2[0-3]):[0-5]\\d$",
+            "title": "Daily Trigger",
+            "type": "string"
+          },
+          "initial_selection_version": {
+            "default": "legacy",
+            "enum": [
+              "legacy",
+              "v004",
+              "v008"
+            ],
+            "title": "Initial Selection Version",
+            "type": "string"
+          },
+          "max_approved": {
+            "default": 3,
+            "maximum": 50.0,
+            "minimum": 1.0,
+            "title": "Max Approved",
+            "type": "integer"
+          },
+          "max_new_publications_per_day": {
+            "default": 3,
+            "maximum": 10.0,
+            "minimum": 1.0,
+            "title": "Max New Publications Per Day",
+            "type": "integer"
+          },
+          "publish_slots": {
+            "items": {
+              "pattern": "^(?:[01]\\d|2[0-3]):[0-5]\\d$",
+              "type": "string"
+            },
+            "title": "Publish Slots",
+            "type": "array"
+          },
+          "timezone": {
+            "const": "Asia/Shanghai",
+            "default": "Asia/Shanghai",
+            "title": "Timezone",
+            "type": "string"
+          }
+        },
+        "title": "Policy",
+        "type": "object"
+      },
+      "PublicationActivity": {
+        "additionalProperties": false,
+        "properties": {
+          "buckets": {
+            "items": {
+              "$ref": "#/components/schemas/ActivityBucket"
+            },
+            "title": "Buckets",
+            "type": "array"
+          },
+          "interval": {
+            "enum": [
+              "hour",
+              "day"
+            ],
+            "title": "Interval",
+            "type": "string"
+          },
+          "since": {
+            "title": "Since",
+            "type": "string"
+          },
+          "timezone": {
+            "const": "Asia/Shanghai",
+            "default": "Asia/Shanghai",
+            "title": "Timezone",
+            "type": "string"
+          },
+          "total": {
+            "title": "Total",
+            "type": "integer"
+          },
+          "until": {
+            "title": "Until",
+            "type": "string"
+          }
+        },
+        "required": [
+          "since",
+          "until",
+          "interval",
+          "total",
+          "buckets"
+        ],
+        "title": "PublicationActivity",
+        "type": "object"
+      },
+      "PublicationDTO": {
+        "additionalProperties": false,
+        "properties": {
+          "confirmed": {
+            "title": "Confirmed",
+            "type": "boolean"
+          },
+          "content_id": {
+            "title": "Content Id",
+            "type": "string"
+          },
+          "created_at": {
+            "title": "Created At",
+            "type": "string"
+          },
+          "id": {
+            "title": "Id",
+            "type": "string"
+          },
+          "manifest_hash": {
+            "title": "Manifest Hash",
+            "type": "string"
+          },
+          "remote_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Remote Id"
+          },
+          "status": {
+            "title": "Status",
+            "type": "string"
+          },
+          "test_only": {
+            "title": "Test Only",
+            "type": "boolean"
+          },
+          "title": {
+            "title": "Title",
+            "type": "string"
+          },
+          "visibility": {
+            "title": "Visibility",
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "content_id",
+          "title",
+          "manifest_hash",
+          "confirmed",
+          "status",
+          "visibility",
+          "remote_id",
+          "test_only",
+          "created_at"
+        ],
+        "title": "PublicationDTO",
+        "type": "object"
+      },
+      "PublicationManifest": {
+        "additionalProperties": false,
+        "properties": {
+          "burn_in_ref": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ArtifactRef"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "content_id": {
+            "title": "Content Id",
+            "type": "string"
+          },
+          "cover_ref": {
+            "$ref": "#/components/schemas/ArtifactRef"
+          },
+          "expires_at": {
+            "title": "Expires At",
+            "type": "string"
+          },
+          "media_ref": {
+            "$ref": "#/components/schemas/ArtifactRef"
+          },
+          "rights_confirmed": {
+            "default": false,
+            "title": "Rights Confirmed",
+            "type": "boolean"
+          },
+          "rights_note": {
+            "default": "",
+            "title": "Rights Note",
+            "type": "string"
+          },
+          "source_url": {
+            "title": "Source Url",
+            "type": "string"
+          },
+          "subtitle_mode": {
+            "enum": [
+              "soft",
+              "hard"
+            ],
+            "title": "Subtitle Mode",
+            "type": "string"
+          },
+          "subtitle_ref": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ArtifactRef"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "test_only": {
+            "default": false,
+            "title": "Test Only",
+            "type": "boolean"
+          },
+          "title": {
+            "maxLength": 80,
+            "minLength": 1,
+            "title": "Title",
+            "type": "string"
+          },
+          "visibility": {
+            "default": "private",
+            "enum": [
+              "private",
+              "public"
+            ],
+            "title": "Visibility",
+            "type": "string"
+          }
+        },
+        "required": [
+          "content_id",
+          "title",
+          "media_ref",
+          "cover_ref",
+          "subtitle_mode",
+          "source_url",
+          "expires_at"
+        ],
+        "title": "PublicationManifest",
+        "type": "object"
+      },
+      "PublicationPage": {
+        "additionalProperties": false,
+        "properties": {
+          "items": {
+            "items": {
+              "$ref": "#/components/schemas/PublicationDTO"
+            },
+            "title": "Items",
+            "type": "array"
+          },
+          "limit": {
+            "title": "Limit",
+            "type": "integer"
+          },
+          "offset": {
+            "title": "Offset",
+            "type": "integer"
+          },
+          "total": {
+            "title": "Total",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "total",
+          "offset",
+          "limit",
+          "items"
+        ],
+        "title": "PublicationPage",
+        "type": "object"
+      },
+      "RankedCandidate": {
+        "additionalProperties": false,
+        "properties": {
+          "angle": {
+            "maxLength": 35,
+            "minLength": 1,
+            "title": "Angle",
+            "type": "string"
+          },
+          "candidate_id": {
+            "title": "Candidate Id",
+            "type": "string"
+          },
+          "evidence": {
+            "maxLength": 55,
+            "minLength": 5,
+            "title": "Evidence",
+            "type": "string"
+          },
+          "evidence_field": {
+            "const": "title",
+            "title": "Evidence Field",
+            "type": "string"
+          },
+          "evidence_matches_title": {
+            "title": "Evidence Matches Title",
+            "type": "boolean"
+          },
+          "rank": {
+            "title": "Rank",
+            "type": "integer"
+          },
+          "verify": {
+            "maxLength": 35,
+            "minLength": 1,
+            "title": "Verify",
+            "type": "string"
+          },
+          "video": {
+            "$ref": "#/components/schemas/VideoDTO"
+          }
+        },
+        "required": [
+          "candidate_id",
+          "angle",
+          "evidence_field",
+          "evidence",
+          "verify",
+          "rank",
+          "video",
+          "evidence_matches_title"
+        ],
+        "title": "RankedCandidate",
+        "type": "object"
+      },
+      "ScanPlanState": {
+        "additionalProperties": false,
+        "properties": {
+          "enabled": {
+            "default": true,
+            "title": "Enabled",
+            "type": "boolean"
+          },
+          "interval_minutes": {
+            "default": 30,
+            "maximum": 1440.0,
+            "minimum": 5.0,
+            "title": "Interval Minutes",
+            "type": "integer"
+          },
+          "next_run_at": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Next Run At"
+          },
+          "revision": {
+            "title": "Revision",
+            "type": "integer"
+          },
+          "scanning": {
+            "title": "Scanning",
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "revision",
+          "scanning"
+        ],
+        "title": "ScanPlanState",
+        "type": "object"
+      },
+      "ScanPlanUpdate": {
+        "additionalProperties": false,
+        "properties": {
+          "enabled": {
+            "default": true,
+            "title": "Enabled",
+            "type": "boolean"
+          },
+          "interval_minutes": {
+            "default": 30,
+            "maximum": 1440.0,
+            "minimum": 5.0,
+            "title": "Interval Minutes",
+            "type": "integer"
+          },
+          "revision": {
+            "minimum": 0.0,
+            "title": "Revision",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "revision"
+        ],
+        "title": "ScanPlanUpdate",
+        "type": "object"
+      },
+      "SelectionStagesDTO": {
+        "additionalProperties": false,
+        "properties": {
+          "active_version": {
+            "default": "v008",
+            "enum": [
+              "v004",
+              "v008"
+            ],
+            "title": "Active Version",
+            "type": "string"
+          },
+          "content_preparation": {
+            "default": "youtube_local_asr",
+            "enum": [
+              "not_implemented",
+              "youtube_local_asr"
+            ],
+            "title": "Content Preparation",
+            "type": "string"
+          },
+          "history": {
+            "items": {
+              "$ref": "#/components/schemas/InitialOutput"
+            },
+            "title": "History",
+            "type": "array"
+          },
+          "initial": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/InitialOutput"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "rescreen": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/InitialOutput"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "rescreen_mode": {
+            "const": "passthrough",
+            "default": "passthrough",
+            "title": "Rescreen Mode",
+            "type": "string"
+          }
+        },
+        "title": "SelectionStagesDTO",
+        "type": "object"
+      },
+      "SessionInfo": {
+        "additionalProperties": false,
+        "properties": {
+          "csrf_token": {
+            "title": "Csrf Token",
+            "type": "string"
+          }
+        },
+        "required": [
+          "csrf_token"
+        ],
+        "title": "SessionInfo",
+        "type": "object"
+      },
+      "SourceDTO": {
+        "additionalProperties": false,
+        "properties": {
+          "enabled": {
+            "title": "Enabled",
+            "type": "boolean"
+          },
+          "evidence_count": {
+            "title": "Evidence Count",
+            "type": "integer"
+          },
+          "id": {
+            "title": "Id",
+            "type": "string"
+          },
+          "last_checked": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Last Checked"
+          },
+          "last_error": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Last Error"
+          },
+          "name": {
+            "title": "Name",
+            "type": "string"
+          },
+          "url": {
+            "title": "Url",
+            "type": "string"
+          },
+          "video_count": {
+            "default": 0,
+            "title": "Video Count",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "id",
+          "name",
+          "url",
+          "evidence_count",
+          "enabled"
+        ],
+        "title": "SourceDTO",
+        "type": "object"
+      },
+      "SourceUpdate": {
+        "additionalProperties": false,
+        "properties": {
+          "enabled": {
+            "title": "Enabled",
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "enabled"
+        ],
+        "title": "SourceUpdate",
+        "type": "object"
+      },
+      "SubmitPlan": {
+        "additionalProperties": false,
+        "properties": {
+          "cover_verified": {
+            "title": "Cover Verified",
+            "type": "boolean"
+          },
+          "execution": {
+            "const": "dry_run",
+            "default": "dry_run",
+            "title": "Execution",
+            "type": "string"
+          },
+          "live_enabled": {
+            "title": "Live Enabled",
+            "type": "boolean"
+          },
+          "manifest_hash": {
+            "title": "Manifest Hash",
+            "type": "string"
+          },
+          "media_verified": {
+            "title": "Media Verified",
+            "type": "boolean"
+          },
+          "publication_id": {
+            "title": "Publication Id",
+            "type": "string"
+          },
+          "subtitle_verified": {
+            "title": "Subtitle Verified",
+            "type": "boolean"
+          },
+          "title": {
+            "title": "Title",
+            "type": "string"
+          },
+          "visibility": {
+            "title": "Visibility",
+            "type": "string"
+          }
+        },
+        "required": [
+          "publication_id",
+          "title",
+          "visibility",
+          "manifest_hash",
+          "media_verified",
+          "cover_verified",
+          "subtitle_verified",
+          "live_enabled"
+        ],
+        "title": "SubmitPlan",
+        "type": "object"
+      },
+      "TaskDTO": {
+        "additionalProperties": false,
+        "properties": {
+          "attempts": {
+            "title": "Attempts",
+            "type": "integer"
+          },
+          "batch_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Batch Id"
+          },
+          "created_at": {
+            "title": "Created At",
+            "type": "string"
+          },
+          "error_code": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Error Code"
+          },
+          "error_message": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Error Message"
+          },
+          "id": {
+            "title": "Id",
+            "type": "string"
+          },
+          "kind": {
+            "title": "Kind",
+            "type": "string"
+          },
+          "status": {
+            "title": "Status",
+            "type": "string"
+          },
+          "updated_at": {
+            "title": "Updated At",
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "kind",
+          "status",
+          "batch_id",
+          "attempts",
+          "error_code",
+          "error_message",
+          "created_at",
+          "updated_at"
+        ],
+        "title": "TaskDTO",
+        "type": "object"
+      },
+      "TaskPage": {
+        "additionalProperties": false,
+        "properties": {
+          "items": {
+            "items": {
+              "$ref": "#/components/schemas/TaskDTO"
+            },
+            "title": "Items",
+            "type": "array"
+          },
+          "limit": {
+            "title": "Limit",
+            "type": "integer"
+          },
+          "offset": {
+            "title": "Offset",
+            "type": "integer"
+          },
+          "total": {
+            "title": "Total",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "total",
+          "offset",
+          "limit",
+          "items"
+        ],
+        "title": "TaskPage",
+        "type": "object"
+      },
+      "UsagePriceInfo": {
+        "additionalProperties": false,
+        "properties": {
+          "calendar_years": {
+            "items": {
+              "type": "string"
+            },
+            "title": "Calendar Years",
+            "type": "array"
+          },
+          "currency": {
+            "default": "CNY",
+            "title": "Currency",
+            "type": "string"
+          },
+          "rates": {
+            "items": {
+              "$ref": "#/components/schemas/UsagePriceRate"
+            },
+            "title": "Rates",
+            "type": "array"
+          },
+          "source_url": {
+            "title": "Source Url",
+            "type": "string"
+          },
+          "verified_at": {
+            "title": "Verified At",
+            "type": "string"
+          },
+          "version": {
+            "title": "Version",
+            "type": "string"
+          }
+        },
+        "required": [
+          "version",
+          "verified_at",
+          "source_url",
+          "currency",
+          "rates",
+          "calendar_years"
+        ],
+        "title": "UsagePriceInfo",
+        "type": "object"
+      },
+      "UsagePriceRate": {
+        "additionalProperties": false,
+        "properties": {
+          "cache_hit": {
+            "title": "Cache Hit",
+            "type": "string"
+          },
+          "cache_miss": {
+            "title": "Cache Miss",
+            "type": "string"
+          },
+          "name": {
+            "title": "Name",
+            "type": "string"
+          },
+          "output": {
+            "title": "Output",
+            "type": "string"
+          },
+          "period": {
+            "title": "Period",
+            "type": "string"
+          }
+        },
+        "required": [
+          "name",
+          "cache_hit",
+          "cache_miss",
+          "output",
+          "period"
+        ],
+        "title": "UsagePriceRate",
+        "type": "object"
+      },
+      "UsageReport": {
+        "additionalProperties": false,
+        "properties": {
+          "captured_at": {
+            "title": "Captured At",
+            "type": "string"
+          },
+          "duplicates_removed": {
+            "default": 0,
+            "title": "Duplicates Removed",
+            "type": "integer"
+          },
+          "pricing": {
+            "$ref": "#/components/schemas/UsagePriceInfo"
+          },
+          "stages": {
+            "items": {
+              "$ref": "#/components/schemas/UsageStage"
+            },
+            "title": "Stages",
+            "type": "array"
+          },
+          "summary": {
+            "$ref": "#/components/schemas/UsageTotals"
+          },
+          "unattributed_workflow": {
+            "$ref": "#/components/schemas/UsageTotals"
+          },
+          "videos": {
+            "items": {
+              "$ref": "#/components/schemas/UsageRow"
+            },
+            "title": "Videos",
+            "type": "array"
+          },
+          "warnings": {
+            "items": {
+              "type": "string"
+            },
+            "title": "Warnings",
+            "type": "array"
+          },
+          "workflows": {
+            "items": {
+              "$ref": "#/components/schemas/UsageRow"
+            },
+            "title": "Workflows",
+            "type": "array"
+          }
+        },
+        "required": [
+          "captured_at",
+          "pricing",
+          "summary",
+          "videos",
+          "workflows",
+          "stages",
+          "unattributed_workflow",
+          "duplicates_removed",
+          "warnings"
+        ],
+        "title": "UsageReport",
+        "type": "object"
+      },
+      "UsageRow": {
+        "additionalProperties": false,
+        "properties": {
+          "batch_ids": {
+            "items": {
+              "type": "string"
+            },
+            "title": "Batch Ids",
+            "type": "array"
+          },
+          "delivered_count": {
+            "default": 0,
+            "title": "Delivered Count",
+            "type": "integer"
+          },
+          "direct": {
+            "$ref": "#/components/schemas/UsageTotals"
+          },
+          "id": {
+            "title": "Id",
+            "type": "string"
+          },
+          "incomplete": {
+            "default": false,
+            "title": "Incomplete",
+            "type": "boolean"
+          },
+          "last_call_at": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Last Call At"
+          },
+          "shared": {
+            "$ref": "#/components/schemas/UsageTotals"
+          },
+          "shared_incomplete": {
+            "default": false,
+            "title": "Shared Incomplete",
+            "type": "boolean"
+          },
+          "stages": {
+            "items": {
+              "$ref": "#/components/schemas/UsageStage"
+            },
+            "title": "Stages",
+            "type": "array"
+          },
+          "status": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Status"
+          },
+          "title": {
+            "title": "Title",
+            "type": "string"
+          },
+          "total": {
+            "$ref": "#/components/schemas/UsageTotals"
+          },
+          "video_count": {
+            "default": 0,
+            "title": "Video Count",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "id",
+          "title",
+          "batch_ids",
+          "status",
+          "video_count",
+          "delivered_count",
+          "last_call_at",
+          "direct",
+          "shared",
+          "total",
+          "incomplete",
+          "shared_incomplete",
+          "stages"
+        ],
+        "title": "UsageRow",
+        "type": "object"
+      },
+      "UsageStage": {
+        "additionalProperties": false,
+        "properties": {
+          "stage": {
+            "title": "Stage",
+            "type": "string"
+          },
+          "totals": {
+            "$ref": "#/components/schemas/UsageTotals"
+          }
+        },
+        "required": [
+          "stage",
+          "totals"
+        ],
+        "title": "UsageStage",
+        "type": "object"
+      },
+      "UsageTotals": {
+        "additionalProperties": false,
+        "properties": {
+          "cache_hit_tokens": {
+            "default": 0,
+            "title": "Cache Hit Tokens",
+            "type": "integer"
+          },
+          "cache_miss_tokens": {
+            "default": 0,
+            "title": "Cache Miss Tokens",
+            "type": "integer"
+          },
+          "cache_unknown_tokens": {
+            "default": 0,
+            "title": "Cache Unknown Tokens",
+            "type": "integer"
+          },
+          "calls": {
+            "default": 0,
+            "title": "Calls",
+            "type": "integer"
+          },
+          "cost_nano_cny": {
+            "default": 0,
+            "title": "Cost Nano Cny",
+            "type": "integer"
+          },
+          "input_tokens": {
+            "default": 0,
+            "title": "Input Tokens",
+            "type": "integer"
+          },
+          "metered_calls": {
+            "default": 0,
+            "title": "Metered Calls",
+            "type": "integer"
+          },
+          "output_tokens": {
+            "default": 0,
+            "title": "Output Tokens",
+            "type": "integer"
+          },
+          "reasoning_tokens": {
+            "default": 0,
+            "title": "Reasoning Tokens",
+            "type": "integer"
+          },
+          "retries": {
+            "default": 0,
+            "title": "Retries",
+            "type": "integer"
+          },
+          "total_tokens": {
+            "default": 0,
+            "title": "Total Tokens",
+            "type": "integer"
+          },
+          "unmetered_calls": {
+            "default": 0,
+            "title": "Unmetered Calls",
+            "type": "integer"
+          },
+          "unpriced_calls": {
+            "default": 0,
+            "title": "Unpriced Calls",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "calls",
+          "retries",
+          "metered_calls",
+          "unmetered_calls",
+          "unpriced_calls",
+          "input_tokens",
+          "output_tokens",
+          "cache_hit_tokens",
+          "cache_miss_tokens",
+          "cache_unknown_tokens",
+          "reasoning_tokens",
+          "total_tokens",
+          "cost_nano_cny"
+        ],
+        "title": "UsageTotals",
+        "type": "object"
+      },
+      "ValidationError": {
+        "properties": {
+          "ctx": {
+            "title": "Context",
+            "type": "object"
+          },
+          "input": {
+            "title": "Input"
+          },
+          "loc": {
+            "items": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "integer"
+                }
+              ]
+            },
+            "title": "Location",
+            "type": "array"
+          },
+          "msg": {
+            "title": "Message",
+            "type": "string"
+          },
+          "type": {
+            "title": "Error Type",
+            "type": "string"
+          }
+        },
+        "required": [
+          "loc",
+          "msg",
+          "type"
+        ],
+        "title": "ValidationError",
+        "type": "object"
+      },
+      "VideoDTO": {
+        "additionalProperties": false,
+        "properties": {
+          "channel_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Channel Id"
+          },
+          "channel_title": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Channel Title"
+          },
+          "discovered_at": {
+            "title": "Discovered At",
+            "type": "string"
+          },
+          "duration_seconds": {
+            "anyOf": [
+              {
+                "minimum": 0.0,
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Duration Seconds"
+          },
+          "origin": {
+            "default": "channel",
+            "enum": [
+              "channel",
+              "home",
+              "manual"
+            ],
+            "title": "Origin",
+            "type": "string"
+          },
+          "published_at": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Published At"
+          },
+          "revision": {
+            "title": "Revision",
+            "type": "integer"
+          },
+          "screened": {
+            "title": "Screened",
+            "type": "boolean"
+          },
+          "source_id": {
+            "title": "Source Id",
+            "type": "string"
+          },
+          "thumbnail_url": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Thumbnail Url"
+          },
+          "title": {
+            "minLength": 1,
+            "title": "Title",
+            "type": "string"
+          },
+          "video_id": {
+            "pattern": "^[A-Za-z0-9_-]{11}$",
+            "title": "Video Id",
+            "type": "string"
+          }
+        },
+        "required": [
+          "video_id",
+          "title",
+          "source_id",
+          "discovered_at",
+          "revision",
+          "screened"
+        ],
+        "title": "VideoDTO",
+        "type": "object"
+      },
+      "VideoPage": {
+        "additionalProperties": false,
+        "properties": {
+          "items": {
+            "items": {
+              "$ref": "#/components/schemas/VideoDTO"
+            },
+            "title": "Items",
+            "type": "array"
+          },
+          "total": {
+            "title": "Total",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "items",
+          "total"
+        ],
+        "title": "VideoPage",
+        "type": "object"
+      },
+      "YoutubeConnection": {
+        "additionalProperties": false,
+        "properties": {
+          "account_name": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Account Name"
+          },
+          "homepage_count": {
+            "default": 0,
+            "title": "Homepage Count",
+            "type": "integer"
+          },
+          "last_sync": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Last Sync"
+          },
+          "last_verified": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Last Verified"
+          },
+          "message": {
+            "title": "Message",
+            "type": "string"
+          },
+          "paired": {
+            "title": "Paired",
+            "type": "boolean"
+          },
+          "source": {
+            "enum": [
+              "extension",
+              "file",
+              "none"
+            ],
+            "title": "Source",
+            "type": "string"
+          },
+          "status": {
+            "enum": [
+              "disconnected",
+              "paired",
+              "received",
+              "checking",
+              "connected",
+              "expired",
+              "error"
+            ],
+            "title": "Status",
+            "type": "string"
+          }
+        },
+        "required": [
+          "status",
+          "paired",
+          "source",
+          "message"
+        ],
+        "title": "YoutubeConnection",
+        "type": "object"
+      },
+      "YoutubePairing": {
+        "additionalProperties": false,
+        "properties": {
+          "code": {
+            "title": "Code",
+            "type": "string"
+          },
+          "expires_at": {
+            "title": "Expires At",
+            "type": "string"
+          },
+          "extension_id": {
+            "title": "Extension Id",
+            "type": "string"
+          }
+        },
+        "required": [
+          "code",
+          "expires_at",
+          "extension_id"
+        ],
+        "title": "YoutubePairing",
+        "type": "object"
+      }
+    }
+  },
+  "info": {
+    "title": "Youmo Workflow",
+    "version": "0.1.0"
+  },
+  "openapi": "3.1.0",
+  "paths": {
+    "/api/v1/artifacts/{artifact_id}": {
+      "get": {
+        "operationId": "artifact_api_v1_artifacts__artifact_id__get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "artifact_id",
+            "required": true,
+            "schema": {
+              "title": "Artifact Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ArtifactDTO"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Bad Request"
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Conflict"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Artifact"
+      }
+    },
+    "/api/v1/artifacts/{artifact_id}/preview": {
+      "get": {
+        "operationId": "preview_api_v1_artifacts__artifact_id__preview_get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "artifact_id",
+            "required": true,
+            "schema": {
+              "title": "Artifact Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "description": "Successful Response"
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Bad Request"
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Conflict"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Preview"
+      }
+    },
+    "/api/v1/batch-plan": {
+      "get": {
+        "operationId": "get_plan_api_v1_batch_plan_get",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BatchPlanState"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Bad Request"
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Conflict"
+          }
+        },
+        "summary": "Get Plan"
+      },
+      "put": {
+        "operationId": "update_plan_api_v1_batch_plan_put",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/BatchPlanUpdate"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BatchPlanState"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Bad Request"
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Conflict"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Update Plan"
+      }
+    },
+    "/api/v1/batches": {
+      "get": {
+        "operationId": "batches_api_v1_batches_get",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/BatchDTO"
+                  },
+                  "title": "Response Batches Api V1 Batches Get",
+                  "type": "array"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Bad Request"
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Conflict"
+          }
+        },
+        "summary": "Batches"
+      }
+    },
+    "/api/v1/batches/{batch_id}": {
+      "get": {
+        "operationId": "batch_api_v1_batches__batch_id__get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "batch_id",
+            "required": true,
+            "schema": {
+              "title": "Batch Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BatchDetail"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Bad Request"
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Conflict"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Batch"
+      }
+    },
+    "/api/v1/batches/{batch_id}/initial-selection": {
+      "post": {
+        "operationId": "start_initial_api_v1_batches__batch_id__initial_selection_post",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "batch_id",
+            "required": true,
+            "schema": {
+              "title": "Batch Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "202": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TaskDTO"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Bad Request"
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Conflict"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Start Initial"
+      }
+    },
+    "/api/v1/batches/{batch_id}/selection-results": {
+      "get": {
+        "operationId": "results_api_v1_batches__batch_id__selection_results_get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "batch_id",
+            "required": true,
+            "schema": {
+              "title": "Batch Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SelectionStagesDTO"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Bad Request"
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Conflict"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Results"
+      }
+    },
+    "/api/v1/dashboard": {
+      "get": {
+        "operationId": "overview_api_v1_dashboard_get",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Dashboard"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Bad Request"
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Conflict"
+          }
+        },
+        "summary": "Overview"
+      }
+    },
+    "/api/v1/discovery-runs": {
+      "post": {
+        "operationId": "discover_api_v1_discovery_runs_post",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "source_id",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Source Id"
+            }
+          }
+        ],
+        "responses": {
+          "202": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/TaskDTO"
+                  },
+                  "title": "Response Discover Api V1 Discovery Runs Post",
+                  "type": "array"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Bad Request"
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Conflict"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Discover"
+      }
+    },
+    "/api/v1/health": {
+      "get": {
+        "operationId": "health_api_v1_health_get",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Health"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Bad Request"
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Conflict"
+          }
+        },
+        "summary": "Health"
+      }
+    },
+    "/api/v1/model-usage": {
+      "get": {
+        "operationId": "usage_api_v1_model_usage_get",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "refresh",
+            "required": false,
+            "schema": {
+              "default": false,
+              "title": "Refresh",
+              "type": "boolean"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UsageReport"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Bad Request"
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Conflict"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Usage"
+      }
+    },
+    "/api/v1/production-batches": {
+      "post": {
+        "operationId": "trigger_batch_api_v1_production_batches_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/BatchTrigger"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "202": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BatchDTO"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Bad Request"
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Conflict"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Trigger Batch"
+      }
+    },
+    "/api/v1/publications": {
+      "get": {
+        "operationId": "publications_api_v1_publications_get",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/PublicationDTO"
+                  },
+                  "title": "Response Publications Api V1 Publications Get",
+                  "type": "array"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Bad Request"
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Conflict"
+          }
+        },
+        "summary": "Publications"
+      }
+    },
+    "/api/v1/publications/prepare": {
+      "post": {
+        "operationId": "prepare_api_v1_publications_prepare_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PublicationManifest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PublicationDTO"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Bad Request"
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Conflict"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Prepare"
+      }
+    },
+    "/api/v1/publications/{publication_id}/attach-subtitles": {
+      "post": {
+        "operationId": "attach_api_v1_publications__publication_id__attach_subtitles_post",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "publication_id",
+            "required": true,
+            "schema": {
+              "title": "Publication Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "additionalProperties": {
+                    "type": "string"
+                  },
+                  "title": "Response Attach Api V1 Publications  Publication Id  Attach Subtitles Post",
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Bad Request"
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Conflict"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Attach"
+      }
+    },
+    "/api/v1/publications/{publication_id}/confirm": {
+      "post": {
+        "operationId": "confirm_api_v1_publications__publication_id__confirm_post",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "publication_id",
+            "required": true,
+            "schema": {
+              "title": "Publication Id",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Confirmation"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PublicationDTO"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Bad Request"
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Conflict"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Confirm"
+      }
+    },
+    "/api/v1/publications/{publication_id}/plan": {
+      "get": {
+        "operationId": "plan_api_v1_publications__publication_id__plan_get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "publication_id",
+            "required": true,
+            "schema": {
+              "title": "Publication Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SubmitPlan"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Bad Request"
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Conflict"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Plan"
+      }
+    },
+    "/api/v1/publications/{publication_id}/submit-private": {
+      "post": {
+        "operationId": "submit_private_api_v1_publications__publication_id__submit_private_post",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "publication_id",
+            "required": true,
+            "schema": {
+              "title": "Publication Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "additionalProperties": {
+                    "type": "string"
+                  },
+                  "title": "Response Submit Private Api V1 Publications  Publication Id  Submit Private Post",
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Bad Request"
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Conflict"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Submit Private"
+      }
+    },
+    "/api/v1/publications/{publication_id}/verify": {
+      "get": {
+        "operationId": "verify_api_v1_publications__publication_id__verify_get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "publication_id",
+            "required": true,
+            "schema": {
+              "title": "Publication Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "additionalProperties": {
+                    "type": "string"
+                  },
+                  "title": "Response Verify Api V1 Publications  Publication Id  Verify Get",
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Bad Request"
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Conflict"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Verify"
+      }
+    },
+    "/api/v1/recommendations/preview": {
+      "get": {
+        "operationId": "recommendations_api_v1_recommendations_preview_get",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DiscoveryPage"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Bad Request"
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Conflict"
+          }
+        },
+        "summary": "Recommendations"
+      }
+    },
+    "/api/v1/scan-plan": {
+      "get": {
+        "operationId": "scan_plan_api_v1_scan_plan_get",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ScanPlanState"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Bad Request"
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Conflict"
+          }
+        },
+        "summary": "Scan Plan"
+      },
+      "put": {
+        "operationId": "update_scan_plan_api_v1_scan_plan_put",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ScanPlanUpdate"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ScanPlanState"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Bad Request"
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Conflict"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Update Scan Plan"
+      }
+    },
+    "/api/v1/session": {
+      "get": {
+        "operationId": "session_api_v1_session_get",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SessionInfo"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Bad Request"
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Conflict"
+          }
+        },
+        "summary": "Session"
+      }
+    },
+    "/api/v1/sources": {
+      "get": {
+        "operationId": "sources_api_v1_sources_get",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/SourceDTO"
+                  },
+                  "title": "Response Sources Api V1 Sources Get",
+                  "type": "array"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Bad Request"
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Conflict"
+          }
+        },
+        "summary": "Sources"
+      }
+    },
+    "/api/v1/sources/{source_id}": {
+      "patch": {
+        "operationId": "update_api_v1_sources__source_id__patch",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "source_id",
+            "required": true,
+            "schema": {
+              "title": "Source Id",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SourceUpdate"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/SourceDTO"
+                  },
+                  "title": "Response Update Api V1 Sources  Source Id  Patch",
+                  "type": "array"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Bad Request"
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Conflict"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Update"
+      }
+    },
+    "/api/v1/tasks": {
+      "get": {
+        "operationId": "tasks_api_v1_tasks_get",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/TaskDTO"
+                  },
+                  "title": "Response Tasks Api V1 Tasks Get",
+                  "type": "array"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Bad Request"
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Conflict"
+          }
+        },
+        "summary": "Tasks"
+      }
+    },
+    "/api/v1/tasks/{task_id}/retry": {
+      "post": {
+        "operationId": "retry_api_v1_tasks__task_id__retry_post",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "task_id",
+            "required": true,
+            "schema": {
+              "title": "Task Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "202": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TaskDTO"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Bad Request"
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Conflict"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Retry"
+      }
+    },
+    "/api/v1/videos": {
+      "get": {
+        "operationId": "videos_api_v1_videos_get",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "source_id",
+            "required": false,
+            "schema": {
+              "default": "",
+              "title": "Source Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "offset",
+            "required": false,
+            "schema": {
+              "default": 0,
+              "minimum": 0,
+              "title": "Offset",
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "limit",
+            "required": false,
+            "schema": {
+              "default": 24,
+              "maximum": 100,
+              "minimum": 1,
+              "title": "Limit",
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/VideoPage"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Bad Request"
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Conflict"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Videos"
+      }
+    },
+    "/api/v1/workspace/batches": {
+      "get": {
+        "operationId": "batches_api_v1_workspace_batches_get",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "limit",
+            "required": false,
+            "schema": {
+              "default": 10,
+              "maximum": 100,
+              "minimum": 1,
+              "title": "Limit",
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "offset",
+            "required": false,
+            "schema": {
+              "default": 0,
+              "minimum": 0,
+              "title": "Offset",
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BatchPage"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Bad Request"
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Conflict"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Batches"
+      }
+    },
+    "/api/v1/workspace/publication-activity": {
+      "get": {
+        "operationId": "activity_api_v1_workspace_publication_activity_get",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "hours",
+            "required": false,
+            "schema": {
+              "default": 72,
+              "maximum": 720,
+              "minimum": 1,
+              "title": "Hours",
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PublicationActivity"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Bad Request"
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Conflict"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Activity"
+      }
+    },
+    "/api/v1/workspace/publications": {
+      "get": {
+        "operationId": "publications_api_v1_workspace_publications_get",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "limit",
+            "required": false,
+            "schema": {
+              "default": 10,
+              "maximum": 100,
+              "minimum": 1,
+              "title": "Limit",
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "offset",
+            "required": false,
+            "schema": {
+              "default": 0,
+              "minimum": 0,
+              "title": "Offset",
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PublicationPage"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Bad Request"
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Conflict"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Publications"
+      }
+    },
+    "/api/v1/workspace/tasks": {
+      "get": {
+        "operationId": "tasks_api_v1_workspace_tasks_get",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "limit",
+            "required": false,
+            "schema": {
+              "default": 10,
+              "maximum": 100,
+              "minimum": 1,
+              "title": "Limit",
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "offset",
+            "required": false,
+            "schema": {
+              "default": 0,
+              "minimum": 0,
+              "title": "Offset",
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TaskPage"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Bad Request"
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Conflict"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Tasks"
+      }
+    },
+    "/api/v1/youtube/connection": {
+      "delete": {
+        "operationId": "disconnect_api_v1_youtube_connection_delete",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/YoutubeConnection"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Bad Request"
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Conflict"
+          }
+        },
+        "summary": "Disconnect",
+        "tags": [
+          "YouTube connection"
+        ]
+      },
+      "get": {
+        "operationId": "status_api_v1_youtube_connection_get",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/YoutubeConnection"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Bad Request"
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Conflict"
+          }
+        },
+        "summary": "Status",
+        "tags": [
+          "YouTube connection"
+        ]
+      }
+    },
+    "/api/v1/youtube/extension.zip": {
+      "get": {
+        "operationId": "download_extension_api_v1_youtube_extension_zip_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Bad Request"
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Conflict"
+          }
+        },
+        "summary": "Download Extension",
+        "tags": [
+          "YouTube connection"
+        ]
+      }
+    },
+    "/api/v1/youtube/pairing": {
+      "post": {
+        "operationId": "pairing_api_v1_youtube_pairing_post",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/YoutubePairing"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Bad Request"
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Conflict"
+          }
+        },
+        "summary": "Pairing",
+        "tags": [
+          "YouTube connection"
+        ]
+      }
+    },
+    "/api/v1/youtube/verify": {
+      "post": {
+        "operationId": "verify_api_v1_youtube_verify_post",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/YoutubeConnection"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Bad Request"
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Conflict"
+          }
+        },
+        "summary": "Verify",
+        "tags": [
+          "YouTube connection"
+        ]
+      }
+    }
+  }
+}

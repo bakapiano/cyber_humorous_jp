@@ -1,0 +1,75 @@
+.youtube-login {
+  display: grid;
+  gap: 18px;
+}
+.connection-card {
+  border: 1px solid var(--line);
+  background: var(--panel);
+  padding: 22px;
+  border-radius: 8px;
+  min-width: 0;
+}
+.connection-card h3 {
+  font-size: 15px;
+  margin: 0 0 12px;
+}
+.connection-card p,
+.connection-card li,
+.connection-note {
+  font-size: 12px;
+  line-height: 1.9;
+  color: var(--muted);
+  overflow-wrap: anywhere;
+}
+.connection-card ol {
+  padding-left: 22px;
+}
+.connection-card li {
+  margin-bottom: 8px;
+}
+.connection-card a {
+  color: var(--accent);
+}
+.connection-card dl {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px 50px;
+}
+.connection-card dt {
+  color: var(--muted);
+  font-size: 11px;
+}
+.connection-card dd {
+  margin: 8px 0 0;
+  font-size: 13px;
+  overflow-wrap: anywhere;
+}
+.connection-card .status-dot {
+  display: inline-block;
+  margin-right: 10px;
+}
+.login-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.pairing-help {
+  border-color: var(--accent-line);
+}
+.pairing-help label {
+  display: block;
+  font-size: 11px;
+  color: var(--muted);
+}
+.pairing-help input {
+  display: block;
+  box-sizing: border-box;
+  width: min(100%, 480px);
+  min-width: 0;
+  padding: 12px;
+  margin: 8px 0 16px;
+  background: var(--surface);
+  border: 1px solid var(--control-border);
+  border-radius: 5px;
+  color: var(--text);
+}

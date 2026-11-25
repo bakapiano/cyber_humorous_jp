@@ -1,0 +1,22 @@
+{
+  "source_prompt": "prompt_versions/v002_all_examples/task.txt",
+  "cover_assets": "cover-poster-v001/vision.txt + render.json (unchanged)",
+  "source_experiment": "raw_titles_80_20_v001/b003_workflow_all_examples",
+  "version": "raw_history_poster_v001",
+  "files": [
+    {
+      "sha256": "6616d40bef54a0a832426b8010eee48d5140c760a764bf812b2334891a7258c0",
+      "path": "title.txt"
+    },
+    {
+      "sha256": "80513816af29c1b073f618844230cb11e93a818c7d60f4bd999aff2bb140840b",
+      "path": "examples.json"
+    },
+    {
+      "sha256": "2e369bddc5d7750e14f36a979224fa3667041c2219ff112ed74ffaf2b0517c33",
+      "path": "cover_plan.txt"
+    }
+  ],
+  "examples_transform": "none; exact byte copy, no deduplication, summaries or templates",
+  "example_count": 1195
+}

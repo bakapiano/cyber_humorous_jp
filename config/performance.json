@@ -1,0 +1,8 @@
+{
+  "enabled": true,
+  "workers": 8,
+  "model": 2,
+  "download": 3,
+  "asr": 1,
+  "render": 2
+}

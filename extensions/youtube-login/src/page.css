@@ -1,0 +1,76 @@
+:root {
+  color-scheme: dark;
+  font-family: system-ui, sans-serif;
+  background: #152019;
+  color: #e4e9dc;
+}
+body {
+  margin: 0;
+  min-width: 360px;
+}
+main {
+  max-width: 560px;
+  margin: auto;
+  padding: 28px;
+}
+small {
+  color: #c4b47f;
+  letter-spacing: 2px;
+  font-size: 10px;
+}
+h1 {
+  font-size: 25px;
+}
+p {
+  line-height: 1.8;
+  font-size: 13px;
+}
+form {
+  display: grid;
+  gap: 14px;
+  margin: 22px 0;
+}
+label {
+  font-size: 12px;
+  line-height: 1.8;
+}
+input[type='password'] {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 10px;
+  background: #0b130e;
+  color: white;
+  border: 1px solid #6b7961;
+  border-radius: 5px;
+}
+.choice {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+button {
+  cursor: pointer;
+  border: 1px solid #7d895e;
+  border-radius: 5px;
+  background: #33452c;
+  color: #edf3e6;
+  padding: 11px 15px;
+  margin: 4px 4px 4px 0;
+}
+button:disabled {
+  opacity: 0.5;
+  cursor: wait;
+}
+#status {
+  padding: 14px;
+  background: #253226;
+  border-radius: 6px;
+  overflow-wrap: anywhere;
+}
+.note {
+  color: #acb7a4;
+  font-size: 11px;
+}
+[hidden] {
+  display: none !important;
+}

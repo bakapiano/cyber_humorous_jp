@@ -1,0 +1,7 @@
+{
+  "files": [
+    {"path": "plan.txt", "sha256": "5522637569699e732c7c64ed2e0f493fa92d18195995fe83aabfb462e7cb6153"},
+    {"path": "vision.txt", "sha256": "cffa08cea4c747cffe82b55e96696df26ed74c734b8d32115ff8e3062011ea93"},
+    {"path": "render.json", "sha256": "f025ae0e717ccc8c1c5b13e4e8e037b2b2a9e25e97055fb0782aaa45dcf04cbd"}
+  ]
+}

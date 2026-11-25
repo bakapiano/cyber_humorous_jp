@@ -1,0 +1,17 @@
+{
+  "layout": "poster",
+  "canvas": [1280, 720],
+  "font_path": "C:/Windows/Fonts/msyhbd.ttc",
+  "max_font_size": 220,
+  "min_font_size": 104,
+  "max_text_width": 1160,
+  "max_text_height": 530,
+  "top": 80,
+  "side_margin": 60,
+  "line_spacing": 12,
+  "fill": "#FFE600",
+  "highlight_fill": "#FF3B30",
+  "stroke": "#111111",
+  "stroke_width": 10,
+  "background_brightness": 0.72
+}

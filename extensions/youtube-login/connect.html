@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head><meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" /><title>Youmo · 连接 YouTube</title></head>
+  <body>
+    <main>
+      <small>YOUMO / LOCAL CONNECTION</small>
+      <h1>连接你的 YouTube</h1>
+      <p>请在专用 Chrome / Edge profile 安装本扩展。只同步该 profile 下默认 YouTube 账号的会话，不读取 Google 密码或其他网站数据。</p>
+      <button id="login">打开 YouTube，手动登录</button>
+      <form id="pair-form">
+        <label for="code">一次性配对码（有效期 5 分钟）</label>
+        <input id="code" type="password" autocomplete="off" spellcheck="false" placeholder="从工作台连接时自动填入，也可手动粘贴" />
+        <label class="choice"><input id="consent" type="checkbox" required />我确认这是用于工作流的专用 profile，同意将 YouTube 会话发送至本机服务。</label>
+        <label class="choice"><input id="auto" type="checkbox" />允许后续自动同步（浏览器运行时，Cookie 变化后及每 30 分钟）。</label>
+        <button id="connect" type="submit">授权并连接</button>
+      </form>
+      <section id="paired-actions" hidden>
+        <button id="sync">立即同步并验证</button>
+        <button id="toggle">切换自动同步</button>
+        <button id="disconnect">撤销连接</button>
+      </section>
+      <p id="status" role="status">正在读取连接状态…</p>
+      <p class="note">Cookie 直接传到本机服务，不经过工作台页面，不存入扩展磁盘缓存。断开只撤销本地授权，不会退出 Google。</p>
+    </main>
+    <script type="module" src="/src/page.ts"></script>
+  </body>
+</html>

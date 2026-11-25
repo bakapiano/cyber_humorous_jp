@@ -1,0 +1,94 @@
+{
+  "schema_version": 1,
+  "version": "2026-11-07-v003-expanded-mask",
+  "replacement": "mask",
+  "description": "用户自定义字幕遮罩规则，不代表平台官方审核标准。2026-11-07按用户要求，针对两条被退回字幕保守扩充中日文明确性相关表述、日本政党/职务及相关人物；平台未披露具体触发词，不能承诺过审。不添加单字通配。命中字符逐字替换为*，保留空白、字幕段和时间轴；原始资料及模型留档不改。",
+  "rules": [
+    {
+      "id": "xi_jinping",
+      "aliases": [
+        "习近平",
+        "習近平",
+        "习主席",
+        "習主席",
+        "Xi Jinping",
+        "シー・ジンピン",
+        "シージンピン"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "chinese_communist_party",
+      "aliases": [
+        "中国共产党",
+        "中國共產黨",
+        "中国共産党",
+        "中國共産黨",
+        "中共",
+        "Chinese Communist Party",
+        "Communist Party of China",
+        "CCP"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "falun_gong",
+      "aliases": [
+        "法轮功",
+        "法輪功",
+        "法轮大法",
+        "法輪大法",
+        "Falun Gong",
+        "Falun Dafa",
+        "ファルンゴン",
+        "ファールンゴン"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "explicit_sexual_terms",
+      "aliases": ["性关系", "性關係", "性的关系", "性的關係", "性的な関係", "性的関係", "性行为", "性行為", "性交", "肉体关系", "肉體關係", "肉体関係", "sexual intercourse"],
+      "enabled": true
+    },
+    {
+      "id": "chastity_rights",
+      "aliases": ["贞操权", "貞操權", "貞操権", "贞操", "貞操"],
+      "enabled": true
+    },
+    {
+      "id": "pregnancy_loss",
+      "aliases": ["流产", "流產", "流産", "堕胎", "墮胎", "妊娠中絶", "人工妊娠中絶"],
+      "enabled": true
+    },
+    {
+      "id": "jp_political_figures",
+      "aliases": ["高市早苗", "高市", "石破茂", "石破", "小渊优子", "小淵優子", "小渊", "小淵", "安倍晋三", "安倍晉三"],
+      "enabled": true
+    },
+    {
+      "id": "jp_political_parties",
+      "aliases": ["自由民主党", "自由民主黨", "自民党", "自民黨"],
+      "enabled": true
+    },
+    {
+      "id": "jp_political_offices",
+      "aliases": ["党总裁", "黨總裁", "党総裁", "内阁总理大臣", "內閣總理大臣", "内閣総理大臣", "前首相", "首相", "总理", "總理", "総理", "众议院", "眾議院", "衆議院", "众院", "衆院", "経産大臣", "经济产业大臣", "經濟產業大臣"],
+      "enabled": true
+    }
+  ],
+  "references": [
+    {
+      "repository": "houbb/sensitive-word-data",
+      "url": "https://github.com/houbb/sensitive-word-data",
+      "commit": "fe6fc2921836217b8c90619db81b24af8b22d80f",
+      "license": "Apache-2.0",
+      "use": "reference_only; upstream dictionary contains many unrelated categories and is not automatically enabled"
+    },
+    {
+      "repository": "houbb/sensitive-word",
+      "url": "https://github.com/houbb/sensitive-word",
+      "license": "Apache-2.0",
+      "use": "reference_only; local implementation has no Java/runtime network dependency"
+    }
+  ]
+}

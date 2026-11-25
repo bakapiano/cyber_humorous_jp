@@ -1,0 +1,188 @@
+{
+  "schema_version": 1,
+  "version": "2026-11-07-v004-review-trial",
+  "replacement": "mask",
+  "description": "仅用于两条已被审核退回字幕的一次保守修订试验，非平台官方词库，不自动替换生产默认规则。保留原v003规则，额外遮罩孕产/婚姻关系及相关司法/议会机构表述；实际触发词未获平台确认。逐字替换星号，不删段、不改时间轴。",
+  "rules": [
+    {
+      "id": "xi_jinping",
+      "aliases": [
+        "习近平",
+        "習近平",
+        "习主席",
+        "習主席",
+        "Xi Jinping",
+        "シー・ジンピン",
+        "シージンピン"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "chinese_communist_party",
+      "aliases": [
+        "中国共产党",
+        "中國共產黨",
+        "中国共産党",
+        "中國共産黨",
+        "中共",
+        "Chinese Communist Party",
+        "Communist Party of China",
+        "CCP"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "falun_gong",
+      "aliases": [
+        "法轮功",
+        "法輪功",
+        "法轮大法",
+        "法輪大法",
+        "Falun Gong",
+        "Falun Dafa",
+        "ファルンゴン",
+        "ファールンゴン"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "explicit_sexual_terms",
+      "aliases": [
+        "性关系",
+        "性關係",
+        "性的关系",
+        "性的關係",
+        "性的な関係",
+        "性的関係",
+        "性行为",
+        "性行為",
+        "性交",
+        "肉体关系",
+        "肉體關係",
+        "肉体関係",
+        "sexual intercourse"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "chastity_rights",
+      "aliases": [
+        "贞操权",
+        "貞操權",
+        "貞操権",
+        "贞操",
+        "貞操"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "pregnancy_loss",
+      "aliases": [
+        "流产",
+        "流產",
+        "流産",
+        "堕胎",
+        "墮胎",
+        "妊娠中絶",
+        "人工妊娠中絶"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "jp_political_figures",
+      "aliases": [
+        "高市早苗",
+        "高市",
+        "石破茂",
+        "石破",
+        "小渊优子",
+        "小淵優子",
+        "小渊",
+        "小淵",
+        "安倍晋三",
+        "安倍晉三"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "jp_political_parties",
+      "aliases": [
+        "自由民主党",
+        "自由民主黨",
+        "自民党",
+        "自民黨"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "jp_political_offices",
+      "aliases": [
+        "党总裁",
+        "黨總裁",
+        "党総裁",
+        "内阁总理大臣",
+        "內閣總理大臣",
+        "内閣総理大臣",
+        "前首相",
+        "首相",
+        "总理",
+        "總理",
+        "総理",
+        "众议院",
+        "眾議院",
+        "衆議院",
+        "众院",
+        "衆院",
+        "経産大臣",
+        "经济产业大臣",
+        "經濟產業大臣"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "trial_family_relationship_terms",
+      "aliases": [
+        "怀孕",
+        "懷孕",
+        "妊娠",
+        "备孕",
+        "備孕",
+        "妊活",
+        "正妻",
+        "本妻"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "trial_institution_terms",
+      "aliases": [
+        "地方法院",
+        "地方裁判所",
+        "地裁",
+        "官邸",
+        "参院",
+        "參院",
+        "参議院",
+        "參議院",
+        "议员",
+        "議員"
+      ],
+      "enabled": true
+    }
+  ],
+  "references": [
+    {
+      "repository": "houbb/sensitive-word-data",
+      "url": "https://github.com/houbb/sensitive-word-data",
+      "commit": "fe6fc2921836217b8c90619db81b24af8b22d80f",
+      "license": "Apache-2.0",
+      "use": "reference_only; upstream dictionary contains many unrelated categories and is not automatically enabled"
+    },
+    {
+      "repository": "houbb/sensitive-word",
+      "url": "https://github.com/houbb/sensitive-word",
+      "license": "Apache-2.0",
+      "use": "reference_only; local implementation has no Java/runtime network dependency"
+    }
+  ]
+}
